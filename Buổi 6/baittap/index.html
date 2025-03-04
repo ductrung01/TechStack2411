@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự Báo Thời Tiết</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        footer {
+            margin-top: auto; /* Đẩy footer xuống dưới cùng */
+        }
+        .header {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #007bff;
+        }
+        .header p {
+            color: #007bff;
+        }
+        .btn-link {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+        .telephone p {
+            color: #343a40;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        .weather-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+        .forecast-card {
+            background-color: #2980b9;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .forecast-card h2 {
+            margin-top: 0;
+        }
+        .forecast-card p {
+            margin-bottom: 0;
+        }
+        .forecast-card img {
+            max-width: 50px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .forecast-card .time {
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="main"></div>
+    <div id="footer"></div>
+
+    <script type="module">
+        import { Header } from './header.js';
+        import { Main } from './main.js';
+        import { Footer } from './footer.js';
+
+        document.getElementById('header').innerHTML = Header();
+        document.getElementById('main').innerHTML = Main();
+        document.getElementById('footer').innerHTML = Footer();
+
+        const API_KEY = '09a71427c59d38d6a34f89b47d75975c';
+        const CITY_NAME = 'Hanoi';
+
+        function fetchWeatherData() {
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY_NAME}&appid=${API_KEY}&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                    const weatherList = document.getElementById('weatherList');
+                    weatherList.innerHTML = '';
+
+                    data.list.forEach(forecast => {
+                        const forecastCard = createForecastCard(forecast);
+                        weatherList.appendChild(forecastCard);
+                    });
+                })
+                .catch(error => {
+                    console.error('Lỗi khi lấy dữ liệu dự báo thời tiết:', error);
+                });
+        }
+
+        function createForecastCard(forecast) {
+            const card = document.createElement('div');
+            card.classList.add('forecast-card');
+
+            const image = document.createElement('img');
+            image.src = `http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+            image.alt = forecast.weather[0].description;
+
+            const temperature = document.createElement('h2');
+            temperature.textContent = `${forecast.main.temp}°C`;
+
+            const description = document.createElement('p');
+            description.textContent = forecast.weather[0].description;
+
+            const time = document.createElement('div');
+            time.classList.add('time');
+            time.textContent = new Date(forecast.dt * 1000).toLocaleString();
+
+            card.appendChild(image);
+            card.appendChild(temperature);
+            card.appendChild(description);
+            card.appendChild(time);
+
+            return card;
+        }
+
+        fetchWeatherData();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

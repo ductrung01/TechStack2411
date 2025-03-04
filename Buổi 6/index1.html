@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách nhân viên</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .table {
+            background-color: #ffffff;
+        }
+        .thead-light {
+            background-color: #007bff;
+            color: white;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .employee-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Danh sách nhân viên</h1>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Tuổi</th>
+                    <th>Giới tính</th>
+                    <th>Địa chỉ</th>
+                </tr>
+            </thead>
+            <tbody id="employee-list">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function fetchUsers() {
+            fetch('https://dummyjson.com/users')
+                .then(response => response.json()) 
+                .then(data => {
+                    const employeeList = document.getElementById('employee-list');
+
+                    for (let i = 0; i < data.users.length; i++) {
+                        const user = data.users[i]; 
+                        const rowHTML = createUserRow(user); 
+                        employeeList.innerHTML += rowHTML; 
+                    }
+                })
+                .catch(error => {
+                    console.error('lỗi rồi:', error);
+                });
+        }
+
+        function createUserRow(user) {
+            return `
+                <tr>
+                    <td><img src="${user.image}" alt="${user.username}" class="employee-image"></td>
+                    <td>${user.username}</td>
+                    <td>${user.age}</td>
+                    <td>${user.gender}</td>
+                    <td>${user.address.address}</td>
+                </tr>
+            `;
+        }
+
+        fetchUsers();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

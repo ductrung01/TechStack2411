@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Danh sách đồ ăn  yêu thích</h1>
+    <ul id="favorite-list">
+        <li class="favorite-list-item">Gà rán</li>
+        <li class="favorite-list-item">Mì ý</li>
+        <li class="favorite-list-item">Pizza</li>
+    </ul>
+    <input type="text" id="new-item" >
+    <button id="button">Thêm vào danh sách</button>
+
+</body>
+<script >
+    const items = document.getElementsByClassName('favorite-list-item');
+    
+    items[0].textContent = "I love this thing";
+    items[0].style.color = "red";
+
+    items[1].textContent = "I love this thing";
+    items[1].style.color = "red";
+
+    items[2].textContent = "I love this thing";
+    items[2].style.color = "red"; 
+    document.getElementById('button').onclick = function(){
+        const textContent = document.getElementById('new-item');
+        const resultText = textContent.value.trim();
+        if(resultText != ''){
+            const newItem = document.createElement('li');
+            newItem.className = 'favorite-list-item';
+            newItem.textContent = resultText;
+            document.getElementById('favorite-list').appendChild(newItem);
+        }
+    }
+   
+</script>
+</html>

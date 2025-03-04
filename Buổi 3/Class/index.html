@@ -5,7 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<script>
+    // let a = [1,2,3,4,5,6];
+    //let x = 8;
+    //for(let i = a.length;i> 0;i--){
+     //   a[i]= a[i-1];
+  //  }
+    //a[0]=x;
+    //console.log(a);
+    //a[a.length]=x;
+    //console.log(a);
+    //for(let j = 0;j <a.length ;j++){
+     //   a[j]=a[j+1]
+    //}
+   
+  //  a.length=a.length-1
+    //console.log(a);
+    //a.length = a.length-1;
+
+   // console.log(a); -->
+
+   const a=[1,2,3,4,5,6,7,8,9];
+   const min=a[0];
+   const max=a[0];
+   for(let i = 0;i<a.length;i++){
+    if(a[i] < min){
+        min =  a[i];
+    } if(a[i] > max){
+        max = a[i];
+    }
+   }
+   console.log(min);
+   console.log(max);
+</script>
 <body>
-    
+    <h1>Lesson 3</h1>
 </body>
 </html>

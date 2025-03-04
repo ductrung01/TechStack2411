@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao Diện Quản Lý</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin: 20px;
+            transition: transform 0.2s;
+            border-radius: 15px;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card.bg-user {
+            background-color: #00aaff; 
+            color: white;
+        }
+        .card.bg-post {
+            background-color: #ffcc00; 
+            color: black;
+        }
+        .card.bg-detail {
+            background-color: #28d745; 
+            color: white;
+        }
+        .card.bg-search {
+            background-color: #ff5722; 
+            color: white;
+        }
+        /* Thêm CSS cho nút Log Out */
+        .logout-btn {
+            position: absolute; /* Vị trí tuyệt đối */
+            top: 20px; /* Khoảng cách từ trên */
+            right: 20px; /* Khoảng cách từ bên phải */
+            z-index: 1000; /* Đảm bảo nút luôn nằm trên cùng */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Trang quản lý User và bài Post</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card text-center bg-user">
+                    <div class="card-body">
+                        <h5 class="card-title">Người Dùng</h5>
+                        <p class="card-text">Xem danh sách Users.</p>
+                        <a href="./cau3/index.html" class="btn btn-light">Xem Danh Sách</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center bg-post">
+                    <div class="card-body">
+                        <h5 class="card-title">Bài Viết</h5>
+                        <p class="card-text">Xem danh sách Posts.</p>
+                        <a href="./cau4/index.html" class="btn btn-dark">Xem Danh Sách</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center bg-detail">
+                    <div class="card-body">
+                        <h5 class="card-title">Chi Tiết Bài Viết</h5>
+                        <p class="card-text">Xem chi tiết một post.</p>
+                        <a href="./cau5/index.html" class="btn btn-light">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center bg-search">
+                    <div class="card-body">
+                        <h5 class="card-title">Tìm Kiếm Bài Viết</h5>
+                        <p class="card-text">Tìm kiếm bài viết theo email Người dùng.</p>
+                        <a href="./cau6/index.html" class="btn btn-light">Tìm Kiếm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút Log Out -->
+    <button class="btn btn-danger logout-btn"><a style="text-decoration: none; color:#fff;" href="./cau1/index.html">Đăng Xuất</a></button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

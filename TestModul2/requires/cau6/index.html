@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm Kiếm Bài Viết Theo Email</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      padding: 30px;
+      margin-top: 50px;
+    }
+    h2 {
+      color: #007bff;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    #postList {
+      display: none;
+    }
+    /* Căn chỉnh nút "Quay Lại" ở góc trái màn hình */
+    .btn-back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <a href="./../index.html" class="btn btn-info btn-back">Quay Lại</a>
+
+  <div class="container mt-5">
+      <h2 class="text-center">Tìm Kiếm Bài Viết Theo Email</h2>
+      <div class="form-group">
+          <label for="userEmail">Nhập Email của người dùng:</label>
+          <input type="email" class="form-control" id="userEmail" placeholder="Nhập email người dùng" required>
+      </div>
+      <button id="btnSearchUser" class="btn btn-primary btn-block">Tìm Kiếm</button>
+
+      <div id="postList" class="mt-5">
+          <h3>Danh Sách Bài Viết</h3>
+          <ul id="postItems" class="list-group">
+            
+          </ul>
+      </div>
+  </div>
+
+  <script src="./script.js"></script>
+  <script src="./../posts.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Users</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        th, td {
+            border-right: 2px solid #dee2e6; 
+        }
+        th:last-child, td:last-child {
+            border-right: none; 
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="back-button">
+            <a href="./../index.html" class="btn btn-info">Quay Lại</a>
+        </div>
+    
+        <h2 class="text-center">Danh sách Users</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" id="keyword" placeholder="Nhập từ khóa">
+        </div>
+        <button class="btn btn-primary" id="search">Tìm kiếm</button>
+
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Họ và Tên</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                
+            </tbody>
+        </table>
+    </div>
+    <script src="./../users.js"></script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+      "target": "ES6",
+      /* Modules */
+      "module": "commonjs",
+      "rootDir": "./src",
+      "outDir": "./dist",// nơi sản xuất ra file index.js
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+  }
